@@ -1,0 +1,17 @@
+
+
+echo "Script output was: $output"
+if [ "$output = $expected ];then 
+  echo "Test Passed!"
+else 
+ echo "Test Failed!"
+ exit 1
+fi
+
+}
+
+test_case PASS "pearse mccarthy" "0831122334"
+test_case FAIL "pearse mccarthy extra" "0831122334"
+test_case FAIL "pearse mccarthy" "0831122344"
+
+
