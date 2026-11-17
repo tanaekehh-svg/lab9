@@ -1,0 +1,93 @@
+  409  mkdir lab9
+  410  cd lab9
+  411  gh auth status
+  412  gh repo create lab9 --public --source=. --remote=origin
+  413  git init
+  414  git branch -M main
+  415  gh repo create lab9 --public --source=. --remote=origin
+  416  gh repo view lab9 --json name,visibility,url
+  417  git remote add origin https://github.com/tanaekehh-svg/lab9.git
+  418  git remote -v
+  419  cd ~/devops/lab9
+  420  git status
+  421  git remote -v
+  423  gh label create EPIC --color FF0000 --description "Epic issue"
+  424  gh issue list --state all
+  425  gh issue create --title "create yaml test script" --label "enhancement" --assignee "@me" --body "Create the GitHub Actions YAML test script."
+  426  gh issue list --json number,title,labels,assignees
+  427  gh issue view 2 --json assignees
+  428  nano validate-data.sh
+  429  bash validate-data.sh "pearse mccarthy" "0831122334"
+  430  nano validate-data.sh
+  431  bash validate-data.sh "pearse mccarthy" "0831122334"
+  432  nano validate-data.sh
+  433  bash validate-data.sh "pearse mccarthy" "0831122334"
+  434  nano validate-data.sh
+  435  bash validate-data.sh "pearse mccarthy" "0831122334"
+  436  bash validate-data.sh  "pearse mccarthy extra" " 0831122334"
+  437  bash validate-data.sh "pearse mccarthy" "08311223344"
+  438  mkdir -p .github/workflows
+  439  nano .github/workflows/basictests.yml
+  440  ls -R .github
+  442  git add validate-data.sh .github/workflows/basictests.yml
+  443  git commit -m "Add validation script and GitHub Actions workflow"
+  444  git push -u origin main
+  445  ssh -T git@github.com
+  446  ls -la ~/.ssh
+  447  ssh -T -i ~/.ssh/github_original -o IdentitiesOnly=yes git@github.com
+  448  git remote set-url origin git@github.com:tanaekehh-svg/lab9.git
+  449  git config core.sshCommand "ssh -i ~/.ssh/github_original -o IdentitiesOnly=yes"
+  450  git push -u origin main
+  451  gh run list --repo tanaekehh-svg/lab9
+  452  cd ~/devops/lab9
+  453  git status
+  454  git remote -v
+  455  ls -la
+  456  gh issue list --state all
+  457  bash validate-data.sh "pearse mccarthy" "0831122334"
+  458  bash validate-data.sh "pearse mccarthy extra" "0831122334"
+  459  bash validate-data.sh "pearse mccarthy" "08311223344"
+  460  gh run list --repo tanaekehh-svg/lab9
+  462  gh run view 43713409018
+  463  cat -n .github/workflows/basictests.yml
+  464  nano .github/workflows/basictests.yml
+  465  cat -n .github/workflows/basictests.yml
+  466  git add .github/workflows/basictests.yml
+  467  git commit -m "Fix GitHub Actions workflow"
+  469  git push origin main
+  470  gh run list --repo tanaekehh-svg/lab9 --limit 3
+  471  gh issue close 2
+  472  gh issue close 3
+  473  gh issue view 1 --json state, title
+  474  gh issue view 1 --json state,title
+  475  gh issue create --title "create lab9 project" --label "enhancement" --assignee "@me" --body "Create the lab9 project with a table view containing LABEL, TITLE and ASSIGNEE."
+  477  gh issue close 4
+  478  gh issue create --title  "create test branch" --label "enhancement" --assignee "@me" --body "Create the test branch, update the validation scrit and configure Github Actions for both branches."
+  479  git switch -c test
+  480  nano validate-data.sh
+  481  cat validate-data.sh
+  482  git add validate-data.sh
+  483  git commit -m "Increase maximum name length to 20"
+  485  git push -u origin test
+  486  git branch --show-current
+  487  nano .github/workflows/basictests.yml
+  488  head -n 8 .github/workflows/basictests.yml
+  490  git add .github/workflows/basictests.yml
+  491  git commit -m "Enable Github Actions on main and test branches"
+  492  git push origin test
+  493  nano .github/workflows/basictests
+  496  nano .github/workflows/basictests.yml
+  497  tail -n 3 .github/workflows/basictests.yml
+  498  nano .github/workflows/basictests.yml
+  499  tail -n 3 .github/workflows/basictests.yml
+  500  sed -i '$c\          test_case PASS "pearse mccarthy test" "0831122334"' .github/workflows/basictests.yml
+  501  tail -n 3 .github/workflows/basictests.yml
+  502  git branch --show-current
+  503  git add .github/workflows/basictests.yml
+  505  git commit -m "Update test cases for PASS FAIL PASS"
+  506  cat .github/workflows/basictests.yml
+  507  nano .github/workflows/basictests.yml
+  508  cat .github/workflows/basictests.yml
+  509  git add .github/workflows/basictests.yml
+  510  git commit -m "Restore complete Github Actions workflow"
+  511  git push origin test
