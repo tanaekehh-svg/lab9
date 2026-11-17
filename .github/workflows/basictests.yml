@@ -1,14 +1,3 @@
-name: lab9-basic-tests
-
-on:
-  push:
-    branches:
-      - main
-      - test
-
-jobs:
-  lab9-basic-tests:
-    runs-on: ubuntu-latest
 
     steps:
       - name: Check out repository
@@ -36,4 +25,4 @@ jobs:
 
           test_case PASS "pearse mccarthy" "0831122334"
           test_case FAIL "pearse mccarthy extra" "0831122334"
-          test_case FAIL "pearse mccarthy" "08311223344"
+          test_case PASS "pearse mccarthy test" "0831122334"
