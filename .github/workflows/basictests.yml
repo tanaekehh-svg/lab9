@@ -1,17 +1,38 @@
+name: lab9-basic-tests
 
+on:
+  push:
+    branches:
+      - main
 
-echo "Script output was: $output"
-if [ "$output = $expected ];then 
-  echo "Test Passed!"
-else 
- echo "Test Failed!"
- exit 1
-fi
+jobs:
+  lab9-basic-tests:
+    runs-on: ubuntu-latest
 
-}
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
 
-test_case PASS "pearse mccarthy" "0831122334"
-test_case FAIL "pearse mccarthy extra" "0831122334"
-test_case FAIL "pearse mccarthy" "0831122344"
+      - name: Make script executable
+        run: chmod +x validate-data.sh
 
+      - name: Run and verify output
+        shell: bash
+        run: |
+          test_case() {
+            expected="$1"
+            shift
+            output=$(bash validate-data.sh "$@")
+            echo "Script output was: $output"
 
+            if [ "$output" = "$expected" ]; then
+              echo "Test Passed!"
+            else
+              echo "Test Failed!"
+              exit 1
+            fi
+          }
+
+          test_case PASS "pearse mccarthy" "0831122334"
+          test_case FAIL "pearse mccarthy extra" "0831122334"
+          test_case FAIL "pearse mccarthy" "08311223344"
